@@ -1,1 +1,37 @@
 @import "tailwindcss";
+
+@layer base {
+  html,
+  body {
+    background-color: #020617;
+    color: #f8fafc;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #020617;
+  }
+
+  code,
+  pre,
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

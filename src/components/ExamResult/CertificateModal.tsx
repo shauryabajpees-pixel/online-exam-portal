@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ExamResult } from '../../types/exam';
 import { Award, Printer, X, Download, ShieldCheck } from 'lucide-react';
+import certBadgeEmblem from '../../assets/images/cert_badge_emblem_1790340718009.jpg';
 
 interface CertificateModalProps {
   isOpen: boolean;
@@ -57,12 +58,16 @@ export const CertificateModal: React.FC<CertificateModalProps> = ({ isOpen, onCl
           <div className="absolute bottom-2 right-2 w-8 h-8 border-b-2 border-r-2 border-amber-500/50" />
 
           {/* Certificate Badge Image */}
-          <div className="mx-auto mb-6 w-20 h-20 rounded-full overflow-hidden border-2 border-amber-500/60 shadow-lg shadow-amber-500/20 bg-slate-950">
+          <div className="mx-auto mb-6 w-20 h-20 rounded-full overflow-hidden border-2 border-amber-500/60 shadow-lg shadow-amber-500/20 bg-slate-950 flex items-center justify-center">
             <img
-              src="/src/assets/images/cert_badge_emblem_1790340718009.jpg"
+              src={certBadgeEmblem}
               alt="Certification Crest Emblem"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
+              onError={(e) => {
+                // Graceful fallback to inline icon if image fails
+                (e.target as HTMLElement).style.display = 'none';
+              }}
             />
           </div>
 

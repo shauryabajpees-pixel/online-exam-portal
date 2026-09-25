@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Exam } from '../types/exam';
 import { Clock, CheckSquare, Award, ArrowRight, ShieldCheck, Terminal, Filter, BookOpen } from 'lucide-react';
+import heroExamHall from '../assets/images/hero_exam_hall_1790340704668.jpg';
 
 interface ExamCatalogProps {
   exams: Exam[];
@@ -78,12 +79,16 @@ export const ExamCatalog: React.FC<ExamCatalogProps> = ({
             </div>
           </div>
 
-          <div className="lg:col-span-5 h-64 lg:h-full relative overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-800">
+          <div className="lg:col-span-5 h-64 lg:h-full relative overflow-hidden border-t lg:border-t-0 lg:border-l border-slate-800 bg-slate-950">
             <img
-              src="/src/assets/images/hero_exam_hall_1790340704668.jpg"
+              src={heroExamHall}
               alt="Digital examination testing terminal"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover object-center filter saturate-110 brightness-95"
+              onError={(e) => {
+                // Graceful fallback to dark terminal container without broken image icon
+                (e.target as HTMLElement).style.display = 'none';
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-950/80 via-transparent to-transparent pointer-events-none" />
           </div>
