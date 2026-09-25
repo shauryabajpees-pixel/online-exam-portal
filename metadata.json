@@ -1,0 +1,7 @@
+{
+  "name": "EvalScript - Online Examination Portal",
+  "description": "Professional proctored online examination portal for JavaScript, algorithms, and web development with live code execution, real-time proctoring metrics, and performance analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
