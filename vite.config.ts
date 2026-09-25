@@ -4,8 +4,7 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import {defineConfig} from 'vite';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const rootDir = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig(() => {
   return {
@@ -13,7 +12,7 @@ export default defineConfig(() => {
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(rootDir, '.'),
       },
     },
     server: {
@@ -25,4 +24,5 @@ export default defineConfig(() => {
     },
   };
 });
+
 
